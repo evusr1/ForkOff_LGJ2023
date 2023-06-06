@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwuopoiq8r0nv"]
+
+[ext_resource type="Script" path="res://Scripts/AttackUser.gd" id="1_ea73h"]
+[ext_resource type="PackedScene" uid="uid://1n38sf2jpbb4" path="res://Scenes/Users/UserUtils.tscn" id="2_hixeh"]
+[ext_resource type="Texture2D" uid="uid://ckq7uoweb6yr3" path="res://Sprites/atk_usr.png" id="3_ujxnc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxiqm"]
+size = Vector2(64, 64)
+
+[node name="AttackUser" type="Area2D" groups=["AttackUser"]]
+script = ExtResource("1_ea73h")
+
+[node name="UserUtils" parent="." instance=ExtResource("2_hixeh")]
+
+[node name="AtkUsr" type="Sprite2D" parent="."]
+texture = ExtResource("3_ujxnc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vxiqm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

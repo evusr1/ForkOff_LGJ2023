@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://8mojsd4c7w5f"]
+
+[ext_resource type="Script" path="res://Scripts/PullReq.gd" id="1_i52jn"]
+[ext_resource type="Texture2D" uid="uid://cq187cdpk7jcq" path="res://Sprites/pull_req.png" id="2_f8had"]
+[ext_resource type="PackedScene" uid="uid://1n38sf2jpbb4" path="res://Scenes/Users/UserUtils.tscn" id="3_5esq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3q6o"]
+size = Vector2(64, 64)
+
+[node name="PullReq" type="Area2D"]
+script = ExtResource("1_i52jn")
+
+[node name="PullReq" type="Sprite2D" parent="."]
+texture = ExtResource("2_f8had")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r3q6o")
+
+[node name="UserUtils" parent="." instance=ExtResource("3_5esq7")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

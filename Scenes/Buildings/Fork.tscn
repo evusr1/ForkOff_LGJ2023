@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1wsilqq5vet2"]
+
+[ext_resource type="Script" path="res://Scripts/Fork.gd" id="1_wpyiv"]
+[ext_resource type="Texture2D" uid="uid://bubxbhalh2c44" path="res://Sprites/fork.png" id="2_3wx2k"]
+[ext_resource type="PackedScene" uid="uid://kbhjd5hlpq7a" path="res://Scenes/Buildings/BuildingBase.tscn" id="2_wi21e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jye0"]
+size = Vector2(64, 64)
+
+[node name="Fork" type="StaticBody2D" groups=["Fork", "NoBuild"]]
+script = ExtResource("1_wpyiv")
+
+[node name="Fork" type="Sprite2D" parent="."]
+texture = ExtResource("2_3wx2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3jye0")
+
+[node name="BuildingBase" parent="." instance=ExtResource("2_wi21e")]
+position = Vector2(-32, -32)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbn5dak444y1"]
+
+[ext_resource type="Texture2D" uid="uid://cuyg8tp76fo7a" path="res://Sprites/funct.png" id="1_vr5f0"]
+[ext_resource type="Script" path="res://Scripts/Function.gd" id="1_vxt23"]
+[ext_resource type="PackedScene" uid="uid://1n38sf2jpbb4" path="res://Scenes/Users/UserUtils.tscn" id="2_xmm02"]
+[ext_resource type="PackedScene" uid="uid://kbhjd5hlpq7a" path="res://Scenes/Buildings/BuildingBase.tscn" id="3_jyma4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e1uh"]
+size = Vector2(64, 62)
+
+[node name="Function" type="StaticBody2D" groups=["Action", "Buildings", "Function", "NoBuild"]]
+script = ExtResource("1_vxt23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6e1uh")
+
+[node name="UserUtils" parent="." instance=ExtResource("2_xmm02")]
+
+[node name="Funct" type="Sprite2D" parent="."]
+texture = ExtResource("1_vr5f0")
+
+[node name="BuildingBase" parent="." instance=ExtResource("3_jyma4")]
+position = Vector2(-32, -32)
+
+[node name="DebugPR" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -12.0
+offset_right = 77.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.415686, 0.415686, 0, 1)
+text = "DbgPR"

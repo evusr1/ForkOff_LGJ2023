@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://3fntpvx4mw81"]
+
+[ext_resource type="Script" path="res://Scripts/CollabCode.gd" id="1_2i5gf"]
+[ext_resource type="PackedScene" uid="uid://kbhjd5hlpq7a" path="res://Scenes/Buildings/BuildingBase.tscn" id="1_inm85"]
+[ext_resource type="Texture2D" uid="uid://ckdxeyg33m2la" path="res://Sprites/collab_code.png" id="2_ni3e0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qth2f"]
+size = Vector2(64, 64)
+
+[node name="CollabCode" type="StaticBody2D" groups=["Action", "CollabCode", "Confirm", "Function", "NoBuild"]]
+script = ExtResource("1_2i5gf")
+
+[node name="CollabCode" type="Sprite2D" parent="."]
+texture = ExtResource("2_ni3e0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qth2f")
+
+[node name="BuildingBase" parent="." instance=ExtResource("1_inm85")]
+position = Vector2(-32, -32)

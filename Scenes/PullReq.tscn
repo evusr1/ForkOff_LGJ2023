@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxyy1dcvbx5tg"]
+
+[ext_resource type="Texture2D" uid="uid://cq187cdpk7jcq" path="res://Sprites/pull_req.png" id="1_naeqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw7dx"]
+size = Vector2(64, 64)
+
+[node name="PullReq" type="RigidBody2D"]
+
+[node name="PullReq" type="Sprite2D" parent="."]
+texture = ExtResource("1_naeqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yw7dx")

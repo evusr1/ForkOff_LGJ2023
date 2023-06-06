@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://1g73e0fl7g7x"]
+
+[ext_resource type="Script" path="res://Scripts/SocialsUser.gd" id="1_ghs7v"]
+[ext_resource type="PackedScene" uid="uid://1n38sf2jpbb4" path="res://Scenes/Users/UserUtils.tscn" id="2_axa1a"]
+[ext_resource type="Texture2D" uid="uid://bpeevs42u1myf" path="res://Sprites/usr.png" id="2_ugv7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tahuf"]
+size = Vector2(64, 64)
+
+[node name="SocialsUser" type="Area2D" groups=["Users"]]
+script = ExtResource("1_ghs7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["User"]]
+shape = SubResource("RectangleShape2D_tahuf")
+
+[node name="UserUtils" parent="." instance=ExtResource("2_axa1a")]
+
+[node name="Usr" type="Sprite2D" parent="."]
+texture = ExtResource("2_ugv7i")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

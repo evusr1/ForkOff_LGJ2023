@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://87y4a8uh2vae"]
+
+[ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_utxu4"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_utxu4")
+display_time = 50
+
+[node name="DisplayStatus" type="Label" parent="."]
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 25.0
+text = "Day:
+Time:
+Clout:
+Complexity:"

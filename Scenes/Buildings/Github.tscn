@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpdveo6743k33"]
+
+[ext_resource type="Script" path="res://Scripts/Github.gd" id="1_5dxge"]
+[ext_resource type="PackedScene" uid="uid://dx31e2p55x2st" path="res://Scenes/Users/Collab.tscn" id="2_q1p5o"]
+[ext_resource type="Texture2D" uid="uid://bp64v6kg31pwb" path="res://Sprites/github.png" id="3_0bysl"]
+[ext_resource type="PackedScene" uid="uid://kbhjd5hlpq7a" path="res://Scenes/Buildings/BuildingBase.tscn" id="3_hhd1k"]
+[ext_resource type="PackedScene" uid="uid://df6u704w3q2kx" path="res://Scenes/Users/EvilCollab.tscn" id="3_jj8q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6e1uh"]
+size = Vector2(64, 62)
+
+[node name="Github" type="StaticBody2D" groups=["Action", "Buildings", "Github", "NoBuild"]]
+script = ExtResource("1_5dxge")
+collab_req = ExtResource("2_q1p5o")
+evil_collab = ExtResource("3_jj8q8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6e1uh")
+
+[node name="Github" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("3_0bysl")
+
+[node name="BuildingBase" parent="." instance=ExtResource("3_hhd1k")]
+position = Vector2(-32, -33)

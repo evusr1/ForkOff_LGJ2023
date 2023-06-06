@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx31e2p55x2st"]
+
+[ext_resource type="Script" path="res://Scripts/Collab.gd" id="1_a14hu"]
+[ext_resource type="Texture2D" uid="uid://boxoph1gmyt48" path="res://Sprites/collab.png" id="1_i117f"]
+[ext_resource type="PackedScene" uid="uid://3fntpvx4mw81" path="res://Scenes/Buildings/CollabCode.tscn" id="2_oarhc"]
+[ext_resource type="PackedScene" uid="uid://1n38sf2jpbb4" path="res://Scenes/Users/UserUtils.tscn" id="2_w34vu"]
+[ext_resource type="PackedScene" uid="uid://8mojsd4c7w5f" path="res://Scenes/Users/PullReq.tscn" id="3_16rgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4tnd"]
+size = Vector2(64, 64)
+
+[node name="Collab" type="Area2D"]
+script = ExtResource("1_a14hu")
+collab_code = ExtResource("2_oarhc")
+pullreq = ExtResource("3_16rgx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g4tnd")
+
+[node name="UserUtils" parent="." instance=ExtResource("2_w34vu")]
+
+[node name="Collab" type="Sprite2D" parent="."]
+texture = ExtResource("1_i117f")

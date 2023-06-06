@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://df6u704w3q2kx"]
+
+[ext_resource type="Script" path="res://Scripts/EvilCollab.gd" id="1_mp06l"]
+[ext_resource type="Texture2D" uid="uid://dbjwkfq03v7o4" path="res://Sprites/bad_collab.png" id="2_7jnss"]
+[ext_resource type="PackedScene" uid="uid://c1wsilqq5vet2" path="res://Scenes/Buildings/Fork.tscn" id="2_kljk3"]
+[ext_resource type="PackedScene" uid="uid://1n38sf2jpbb4" path="res://Scenes/Users/UserUtils.tscn" id="3_52aff"]
+[ext_resource type="PackedScene" uid="uid://cwuopoiq8r0nv" path="res://Scenes/Users/AttackUser.tscn" id="3_iabv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btul2"]
+size = Vector2(64, 64)
+
+[node name="EvilCollab" type="Area2D" groups=["EvilCollab"]]
+script = ExtResource("1_mp06l")
+fork_code = ExtResource("2_kljk3")
+user_ammo = ExtResource("3_iabv1")
+
+[node name="UserUtils" parent="." instance=ExtResource("3_52aff")]
+
+[node name="BadCollab" type="Sprite2D" parent="."]
+texture = ExtResource("2_7jnss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_btul2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

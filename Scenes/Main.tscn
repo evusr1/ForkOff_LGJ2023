@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://cht6nip6c8e4v"]
+
+[ext_resource type="PackedScene" uid="uid://bg55mwt1y2mpc" path="res://Scenes/Player.tscn" id="1_eloud"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_vtf45"]
+[ext_resource type="PackedScene" uid="uid://bbn5dak444y1" path="res://Scenes/Buildings/Function.tscn" id="2_ov0yi"]
+[ext_resource type="PackedScene" uid="uid://vs4wod5ciiin" path="res://Scenes/Interface/Crosshair.tscn" id="3_rk8rv"]
+[ext_resource type="PackedScene" uid="uid://bpdveo6743k33" path="res://Scenes/Buildings/Github.tscn" id="3_y7hdw"]
+[ext_resource type="PackedScene" uid="uid://72ukitfml22y" path="res://Scenes/Buildings/Social.tscn" id="4_xphqf"]
+[ext_resource type="PackedScene" uid="uid://87y4a8uh2vae" path="res://Scenes/Interface/GUI.tscn" id="5_jk14e"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="6_xnpvm"]
+[ext_resource type="PackedScene" uid="uid://mpq14x5uqaqq" path="res://Scenes/Background.tscn" id="9_yxrk6"]
+[ext_resource type="Texture2D" uid="uid://cimj0nl4o7mnh" path="res://Sprites/BG/vignette.png" id="10_eim2e"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_vtf45")
+building_scenes = Array[PackedScene]([ExtResource("2_ov0yi"), ExtResource("3_y7hdw"), ExtResource("4_xphqf")])
+day_length = 30
+
+[node name="Background" parent="." instance=ExtResource("9_yxrk6")]
+position = Vector2(512, 384)
+
+[node name="Player" parent="." instance=ExtResource("1_eloud")]
+position = Vector2(604, 651)
+
+[node name="GUI" parent="." instance=ExtResource("5_jk14e")]
+
+[node name="DayTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("6_xnpvm")
+
+[node name="Crosshair" parent="." instance=ExtResource("3_rk8rv")]
+position = Vector2(634, 432)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(510, 384)
+texture = ExtResource("10_eim2e")
+
+[connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]

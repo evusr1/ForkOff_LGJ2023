@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://vs4wod5ciiin"]
+
+[ext_resource type="Script" path="res://Scripts/Crosshair.gd" id="1_mhax6"]
+[ext_resource type="Texture2D" uid="uid://xownewexh4tv" path="res://Sprites/ptr.png" id="2_napvf"]
+[ext_resource type="PackedScene" uid="uid://cwuopoiq8r0nv" path="res://Scenes/Users/AttackUser.tscn" id="2_s1vsq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcd7l"]
+radius = 33.541
+
+[node name="Crosshair" type="Area2D"]
+script = ExtResource("1_mhax6")
+user_ammo = ExtResource("2_s1vsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vcd7l")
+
+[node name="Ptr" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_napvf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ptr2" type="Sprite2D" parent="CanvasLayer"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_napvf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
